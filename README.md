@@ -1,2 +1,7 @@
-# someshds.github.io
-Public GitHub Pages host for RippleKeep sample sites. Not the live sallyoasispaintings.co.uk domain.
+# Sally Oasis Paintings sample
+
+RippleKeep sample website. Not the live sallyoasispaintings.co.uk domain.
+
+Public URL: https://someshds.github.io/
+
+This site is noindex. Shop Buy buttons still open the live WooCommerce shop.
