@@ -1,0 +1,37 @@
+name: Import static site
+
+on:
+  push:
+    paths:
+      - IMPORT_URL.txt
+      - .github/workflows/import-site.yml
+  workflow_dispatch:
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and extract site
+        run: |
+          set -euo pipefail
+          URL=$(tr -d '[:space:]' < IMPORT_URL.txt)
+          curl -fsSL "$URL" -o /tmp/site.zip
+          mkdir -p /tmp/site
+          unzip -o /tmp/site.zip -d /tmp/site
+          cp -a /tmp/site/. .
+          touch .nojekyll
+      - name: Commit imported site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Import Sally Oasis sample site"
+            git push
+          fi
