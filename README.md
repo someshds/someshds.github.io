@@ -1,7 +1,12 @@
 # Sally Oasis Paintings sample
 
-RippleKeep sample website. Not the live sallyoasispaintings.co.uk domain and it does not change her DNS.
+This GitHub Pages site now redirects every path to the matching page on the RippleKeep host.
 
-Permanent public URL: https://someshds.github.io/
+Permanent sample: https://ripplekeep.com/sally-oasis
 
-This site is noindex, nofollow. Shop Buy buttons still open the live WooCommerce shop.
+Examples:
+
+- https://someshds.github.io/ → https://ripplekeep.com/sally-oasis
+- https://someshds.github.io/gallery/ → https://ripplekeep.com/sally-oasis/gallery
+
+Redirects use meta refresh, JavaScript, a canonical URL, and noindex. This is not sallyoasispaintings.co.uk and it does not change her DNS.
